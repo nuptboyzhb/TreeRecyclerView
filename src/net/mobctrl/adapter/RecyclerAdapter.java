@@ -88,8 +88,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 			addAll(children, position + 1);// 插入到点击点的下方
 			itemData.setChildren(children);
 			if (onScrollToListener != null) {
-				onScrollToListener.scrollTo(position
-						+ itemData.getChildren().size());
+				onScrollToListener.scrollTo(position + 1);
 			}
 		}
 
