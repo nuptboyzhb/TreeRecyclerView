@@ -103,6 +103,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 			if (onScrollToListener != null) {
 				onScrollToListener.scrollTo(position);
 			}
+			itemData.setChildren(null);
 		}
 	};
 

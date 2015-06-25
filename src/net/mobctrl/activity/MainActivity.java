@@ -51,8 +51,7 @@ public class MainActivity extends Activity {
 	}
 
 	private void initDatas() {
-		List<ItemData> list = myAdapter.getChildrenByPath(Environment
-				.getExternalStorageDirectory().getPath(), 0);
+		List<ItemData> list = myAdapter.getChildrenByPath("/", 0);
 		myAdapter.addAll(list, 0);
 	}
 

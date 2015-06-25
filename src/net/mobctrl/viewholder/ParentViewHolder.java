@@ -1,5 +1,7 @@
 package net.mobctrl.viewholder;
 
+import java.util.List;
+
 import net.mobctrl.interfaces.ItemDataClickListener;
 import net.mobctrl.model.ItemData;
 import net.mobctrl.treerecyclerview.R;
@@ -26,6 +28,7 @@ public class ParentViewHolder extends BaseViewHolder {
 	public ImageView image;
 	public TextView text;
 	public ImageView expand;
+	public TextView count;
 	public RelativeLayout relativeLayout;
 	private int itemMargin;
 
@@ -34,6 +37,7 @@ public class ParentViewHolder extends BaseViewHolder {
 		image = (ImageView) itemView.findViewById(R.id.image);
 		text = (TextView) itemView.findViewById(R.id.text);
 		expand = (ImageView) itemView.findViewById(R.id.expand);
+		count = (TextView) itemView.findViewById(R.id.count);
 		relativeLayout = (RelativeLayout) itemView.findViewById(R.id.container);
 		itemMargin = itemView.getContext().getResources()
 				.getDimensionPixelSize(R.dimen.item_margin);
@@ -48,8 +52,15 @@ public class ParentViewHolder extends BaseViewHolder {
 		text.setText(itemData.getText());
 		if (itemData.isExpand()) {
 			expand.setRotation(45);
+			List<ItemData> children = itemData.getChildren();
+			if (children != null) {
+				count.setText(String.format("(%s)", itemData.getChildren()
+						.size()));
+			}
+			count.setVisibility(View.VISIBLE);
 		} else {
 			expand.setRotation(0);
+			count.setVisibility(View.GONE);
 		}
 		relativeLayout.setOnClickListener(new OnClickListener() {
 
@@ -60,10 +71,17 @@ public class ParentViewHolder extends BaseViewHolder {
 						imageClickListener.onHideChildren(itemData);
 						itemData.setExpand(false);
 						rotationExpandIcon(45, 0);
+						count.setVisibility(View.GONE);
 					} else {
 						imageClickListener.onExpandChildren(itemData);
 						itemData.setExpand(true);
 						rotationExpandIcon(0, 45);
+						List<ItemData> children = itemData.getChildren();
+						if (children != null) {
+							count.setText(String.format("(%s)", itemData
+									.getChildren().size()));
+						}
+						count.setVisibility(View.VISIBLE);
 					}
 				}
 
