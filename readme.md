@@ -1,6 +1,6 @@
 #TreeRecyclerView Demo
  
-Using RecyclerView to simulate the tree structure of the tree.
+Using RecyclerView to simulate the view of tree structure.
 
 ## Feature
 - Using only one RecyclerView.
