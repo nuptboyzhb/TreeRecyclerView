@@ -1,10 +1,13 @@
-#TreeRecyclerView项目
+#TreeRecyclerView Demo
  
-使用RecyclerView模拟树结构的TreeView
+Using RecyclerView to simulate the tree structure of the tree.
 
-## 原理
-在整个树目录结构中，仅使用一个RecyclerView，不同的Item只是不同的布局而已，展开和收起的原理是动态的添加和删除数据。
-## 效果demo
+## Feature
+- Using only one RecyclerView.
+- The layout of the parent item and child item is different.
+- The depth of the tree is positively related to marginLeft.
+- The animation of 'expand' or 'hide' is done by adding or removing the children nodes.
+## Demo
 
 ![gif](https://github.com/nuptboyzhb/TreeRecyclerView/blob/master/demo/demo.gif)
 

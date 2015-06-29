@@ -8,7 +8,6 @@ import net.mobctrl.model.ItemData;
 import net.mobctrl.treerecyclerview.R;
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
