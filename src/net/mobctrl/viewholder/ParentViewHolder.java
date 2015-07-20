@@ -56,8 +56,10 @@ public class ParentViewHolder extends BaseViewHolder {
 			if (children != null) {
 				count.setText(String.format("(%s)", itemData.getChildren()
 						.size()));
-			}
-			count.setVisibility(View.VISIBLE);
+			 count.setVisibility(View.VISIBLE);
+						} else {
+                            count.setVisibility(View.GONE);
+                        }
 		} else {
 			expand.setRotation(0);
 			count.setVisibility(View.GONE);
